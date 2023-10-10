@@ -1,4 +1,5 @@
 from Model import *
+from Dao import *
 
 class ControllerAdicionarTarefa():
     def __init__(self, tarefa):
@@ -18,29 +19,28 @@ class ControllerAdicionarTarefa():
             except Exception:
                 print("Opção inválida")
 
-class ControllerExcluirTarefa():
-    def __init__(self, excluir):
-        s = 0
-        while s == 0:
-            try:
-                x = int(excluir)
-                self.excluir = x - 1
+# class ControllerExcluirTarefa():
+#     def __init__(self, excluir):
+#         s = 0
+#         while s == 0:
+#             try:
+#                 x = int(excluir)
+#                 self.excluir = x - 1
 
-                if TODO.ExcluirTarefa(self.excluir) == True:
-                        print ("Tarefa excluída")
-                        s = 1
-                else:
-                    print ("Algum problema foi encontrado ao tentar excluir tarefa")
+#                 if TODO.ExcluirTarefa(self.excluir) == True:
+#                         print ("Tarefa excluída")
+#                         s = 1
+#                 else:
+#                     print ("Algum problema foi encontrado ao tentar excluir tarefa")
 
-            except Exception:
-                print("Opção inválida")
-                excluir = input ("Qual o índice da tarefa que deseja excluir? ")
+#             except Exception:
+#                 print("Opção inválida")
+#                 excluir = input ("Qual o índice da tarefa que deseja excluir? ")
 
 
 class ControllerListarTarefa():
     def __init__(self):
         ControllerLista = TODO.ListarTarefa()
-        cont = 1
-        for tarefas in ControllerLista:
-            print (f"{cont} -- {tarefas}")
-            cont += 1
+        
+        for linha in ControllerLista:
+            print(linha.strip())
