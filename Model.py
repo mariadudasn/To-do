@@ -2,9 +2,9 @@ from Dao import *
 
 class ToDo():
 
-    def AdicionarTarefa(self):
+    def AdicionarTarefa(self, tarefa):
         dao = DAO_AdicionarTarefa()
-        return dao.AdicionarTarefa()
+        return dao.AdicionarTarefa(tarefa)
 
     # def ExcluirTarefa(self,excluir):
     #     self.lista.pop(excluir)
@@ -12,6 +12,6 @@ class ToDo():
 
     def ListarTarefa(self):
         daolista = DAO_ListarTarefa()
-        return daolista
+        return daolista.ListarTarefa()
 
 TODO = ToDo()
