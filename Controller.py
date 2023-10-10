@@ -40,7 +40,7 @@ class ControllerAdicionarTarefa():
 
 class ControllerListarTarefa():
     def __init__(self):
-        ControllerLista = TODO.ListarTarefa()
-        
-        for linha in ControllerLista:
-            print(linha.strip())
+        cont = 0
+        for tarefa in TODO.ListarTarefa():
+            cont += 1
+            print(f"{cont} - {tarefa.strip()}")
