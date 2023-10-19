@@ -1,7 +1,1 @@
 
-ID:	TAREFA:
-12
-1937	Correr
-ID:	TAREFA:
-12
-2501	Correr
