@@ -40,7 +40,12 @@ class ControllerAdicionarTarefa():
 
 class ControllerListarTarefa():
     def __init__(self):
-        cont = 0
-        for tarefa in TODO.ListarTarefa():
-            cont += 1
-            print(f"{cont} - {tarefa.strip()}")
+        try:
+            cont = -1
+            for tarefa in TODO.ListarTarefa():
+                cont += 1
+                if cont >= 1:
+                    tarefa = tarefa[7:-1]
+                    print(f"{cont} - {tarefa}")
+        except Exception:
+            print ("Inválido")
