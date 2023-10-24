@@ -6,9 +6,9 @@ class ToDo():
         dao = DAO_AdicionarTarefa()
         return dao.AdicionarTarefa(tarefa)
 
-    # def ExcluirTarefa(self,excluir):
-    #     self.lista.pop(excluir)
-    #     return True
+    def ExcluirTarefa(self,excluir):
+        self.lista.pop(excluir)
+        return True
 
     def ListarTarefa(self):
         daolista = DAO_ListarTarefa()
