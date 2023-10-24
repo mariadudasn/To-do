@@ -1,19 +1,20 @@
-from random import randint
-
 Arquivo = "ToDo.txt"
-ids = []
 
 class DAO_AdicionarTarefa:
+    def __init__(self, tarefa):
+        self.tarefa = tarefa
 
-    def AdicionarTarefa(self,tarefa):
-        self.id = randint(1000,9999)
-        ids.append(self.id)
+    def AdicionarTarefa(self, x):
         with open(Arquivo, "a") as arquivo:
-            id = randint(1000,9999)
-            if id in ids:
-                return False
-            else:
-                arquivo.write(f"{id}\t{tarefa}\n")
+            tarefa_formatada = f"{x}\t{self.tarefa}"
+
+            with open(Arquivo, "r") as arquivo:
+                ler = arquivo.read()
+
+            with open(Arquivo, "a") as arquivo:
+                if "ID: \tTAREFA:" not in ler:
+                    arquivo.write(f"ID: \tTAREFA:\n")
+                arquivo.write(f"{tarefa_formatada}\n")
                 return True
 
 class DAO_ListarTarefa:

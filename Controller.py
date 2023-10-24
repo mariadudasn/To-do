@@ -1,21 +1,42 @@
 from Model import *
 from Dao import *
+from random import *
 
 class ControllerAdicionarTarefa():
     def __init__(self, tarefa):
-        m = 0
-        while m == 0:
             try:
                 self.tarefa = tarefa
-                
-                if self.tarefa == "":
-                    print("Informe uma tarefa válida")
+                id = randint(1000,9999)
+                cont = -1
+                if len(TODO.ListarTarefa()) > 1:
+                    for tarefas in TODO.ListarTarefa():
+                        cont +=1
+                        if cont >= 1:
+                            tarefas = tarefas [:4]
+                            tarefas = int(tarefas)
+                            if id != tarefas:
+                                if self.tarefa == "":
+                                    print ("Digite novamente, tarefa inválida")
+                                else:
+                                    if TODO.AdicionarTarefa(self.tarefa, id) == True: 
+                                        print ("Tarefa adicionada")
+                                        break
+                                    else:
+                                        print ("Tarefa não foi adicionada")
+                                        break
+                            else:
+                                id = randint (1000, 9999)
+
                 else:
-                    if TODO.AdicionarTarefa(self.tarefa) == True:
-                        print ("Tarefa adicionada")
-                        m = 1
+                    if self.tarefa == "":
+                        print ("Digite novamente, tarefa inválida")    
                     else:
-                        print ("Algum problema foi encontrado ao tentar adicionar tarefa")
+                        if TODO.AdicionarTarefa(self.tarefa, id) == True: 
+                            print ("Tarefa adicionada")
+                        else:
+                            print ("Tarefa não foi adicionada")
+                            
+                            
             except Exception:
                 print("Opção inválida")
 
