@@ -2,6 +2,7 @@ from Model import *
 from Dao import *
 from random import *
 
+indices = {}
 class ControllerAdicionarTarefa():
     def __init__(self, tarefa):
         try:
@@ -58,7 +59,7 @@ class ControllerExcluirTarefa():
                 print("Opção inválida")
                 excluir = input ("Qual o índice da tarefa que deseja excluir? ")
 
-indices = {}
+
 class ControllerListarTarefaA():
     def __init__(self):
         cont = -1
@@ -72,10 +73,22 @@ class ControllerListarTarefaA():
                         print(f"{cont} - {tarefas[2]}")
                         indices[cont] = tarefas[1]
 
+lista = ControllerListarTarefaA
+
 class ControllerAlterarTarefa():
     def __init__(self, indiceAlt, novaTarefa):
         self.indiceAlt = indiceAlt
         self.novaTarefa = novaTarefa
+
+        if self.indiceAlt in indices:
+            for tarefas in TODO.ListarTarefa():
+                lista_L = tarefas.split()
+                tarefasId = lista_L[1]
+                if tarefasId == indices[self.indiceAlt]:
+                    tarefa_A = tarefas [9:-1]
+
+
+
 
         
 

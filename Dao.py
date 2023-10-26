@@ -26,6 +26,12 @@ class DAO_ListarTarefa:
 
 
 class DAO_AlterarTarefa:
-    def AlterarTarefa(self):
-        with open(Arquivo, "a") as arquivo:
-            
+    def AlterarTarefa(self, tarefa_A, novaTarefa):
+        with open(Arquivo, "r") as arquivo:
+            texto = arquivo.read()
+
+        textoNovo = texto.replace(tarefa_A, novaTarefa)
+
+        with open(Arquivo, "w") as arquivo:
+            arquivo.write(textoNovo)
+            return textoNovo

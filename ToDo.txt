@@ -1,3 +1,0 @@
-STATUS: 	ID: 	TAREFA:
-A			3213	a
-A			2420	s
