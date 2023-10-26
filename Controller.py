@@ -73,23 +73,20 @@ class ControllerListarTarefaA():
                         print(f"{cont} - {tarefas[2]}")
                         indices[cont] = tarefas[1]
 
-lista = ControllerListarTarefaA
+lista = ControllerListarTarefaA()
 
 class ControllerAlterarTarefa():
     def __init__(self, indiceAlt, novaTarefa):
-        self.indiceAlt = indiceAlt
-        self.novaTarefa = novaTarefa
+        try:
+            self.indiceAlt = indiceAlt
+            self.novaTarefa = novaTarefa
 
-        if self.indiceAlt in indices:
-            for tarefas in TODO.ListarTarefa():
-                lista_L = tarefas.split()
-                tarefasId = lista_L[1]
-                if tarefasId == indices[self.indiceAlt]:
-                    tarefa_A = tarefas [9:-1]
-
-
-
-
-        
-
-
+            if self.indiceAlt in indices:
+                for tarefas in TODO.ListarTarefa():
+                    lista_L = tarefas.split()
+                    tarefasId = lista_L[1]
+                    if tarefasId == indices[self.indiceAlt]:
+                        tarefa_A = tarefas [9:-1]
+                        TODO.AlterarTarefa(tarefa_A, novaTarefa)
+        except Exception:
+            print("Opção inválida")

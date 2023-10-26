@@ -1,0 +1,6 @@
+STATUS: 	ID: 	TAREFA:
+A			5567	a
+A			3367	b
+A			9984	c
+A			6493	a
+A			3905	b

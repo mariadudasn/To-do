@@ -44,6 +44,8 @@ while sair == 0:
             indiceAlt = input ("Qual a tarefa que deseja alterar? Adicione o índice: ")
             novaTarefa = input ("Digite a alteração que deseja fazer: ")
             alterar = ControllerAlterarTarefa(indiceAlt, novaTarefa)
+            print(" ")
+            listarTarefa = ControllerListarTarefaA()
             print (" ")
             os.system("pause")
 
