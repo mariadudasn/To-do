@@ -59,11 +59,14 @@ class ControllerExcluirTarefa():
                 excluir = input ("Qual o índice da tarefa que deseja excluir? ")
 
 
-class ControllerListarTarefa():
+class ControllerListarTarefaA():
     def __init__(self):
         cont = -1
-        for tarefa in TODO.ListarTarefa():
-            cont += 1
-            if cont >= 1:
-                tarefa = tarefa[9:-1]
-                print(f"{cont} - {tarefa}")
+        if len(TODO.ListarTarefa()) > 1:
+            for tarefas in TODO.ListarTarefa():
+                cont +=1
+                if cont >= 1:
+                    tarefas = tarefas.split()
+                    tarefasA = tarefas[0]
+                    if "A" != tarefasA:
+                        print(f"{cont} - {tarefas[2]}")

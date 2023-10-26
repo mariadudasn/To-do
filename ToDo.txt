@@ -1,1 +1,5 @@
-
+STATUS: 	ID: 	TAREFA:
+A			4973	aa
+A			9056	bb
+B			7473	aaa
+A			7276	A

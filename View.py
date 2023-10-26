@@ -29,7 +29,7 @@ while sair == 0:
             os.system("cls")
             print ("Lista de tarefas:")
             print(" ")
-            listarTarefa = ControllerListarTarefa()
+            listarTarefa = ControllerListarTarefaA()
             print (" ")
             os.system("pause")
 
@@ -46,21 +46,21 @@ while sair == 0:
             os.system("cls")
             print ("Lista de tarefas:")
             print(" ")
-            listarTarefa = ControllerListarTarefa()
+            listarTarefa = ControllerListarTarefaA()
             print(" ")
             excluir = input ("Qual o índice da tarefa que deseja excluir? ")
             excluirTarefa = ControllerExcluirTarefa(excluir)
             print(" ")
             print ("Lista de tarefas:")
             print(" ")
-            listarTarefa = ControllerListarTarefa()
+            listarTarefa = ControllerListarTarefaA()
             os.system("pause")
 
         case "7":
             print ("Saindo...")
             os.system("pause")
             break
-        
+
         case _:
             print ("Opção inválida")
             os.system("pause")

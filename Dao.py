@@ -18,10 +18,12 @@ class DAO_AdicionarTarefa:
                 arquivo.write(f"{tarefa_formatada}\n")
                 return True
 
-class DAO_ListarTarefa_A:
-
+class DAO_ListarTarefa:
     def ListarTarefa(self):
         with open(Arquivo, "r") as arquivo:
             linhas = arquivo.readlines()
         return linhas            
 
+
+class DAO_AlterarTarefa:
+    pass
