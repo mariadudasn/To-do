@@ -26,4 +26,6 @@ class DAO_ListarTarefa:
 
 
 class DAO_AlterarTarefa:
-    pass
+    def AlterarTarefa(self):
+        with open(Arquivo, "a") as arquivo:
+            

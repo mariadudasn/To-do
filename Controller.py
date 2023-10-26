@@ -58,7 +58,7 @@ class ControllerExcluirTarefa():
                 print("Opção inválida")
                 excluir = input ("Qual o índice da tarefa que deseja excluir? ")
 
-
+indices = {}
 class ControllerListarTarefaA():
     def __init__(self):
         cont = -1
@@ -68,5 +68,15 @@ class ControllerListarTarefaA():
                 if cont >= 1:
                     tarefas = tarefas.split()
                     tarefasA = tarefas[0]
-                    if "A" != tarefasA:
+                    if "A" == tarefasA:
                         print(f"{cont} - {tarefas[2]}")
+                        indices[cont] = tarefas[1]
+
+class ControllerAlterarTarefa():
+    def __init__(self, indiceAlt, novaTarefa):
+        self.indiceAlt = indiceAlt
+        self.novaTarefa = novaTarefa
+
+        
+
+

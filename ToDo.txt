@@ -1,5 +1,3 @@
 STATUS: 	ID: 	TAREFA:
-A			4973	aa
-A			9056	bb
-B			7473	aaa
-A			7276	A
+A			3213	a
+A			2420	s
