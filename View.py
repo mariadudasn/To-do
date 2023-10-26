@@ -7,8 +7,11 @@ while sair == 0:
     print ("SOFTWARE DE TO-DO")
     print ("01 -> ADICIONAR TAREFA")
     print ("02 -> LISTAR TAREFAS")
-    print ("03 -> EXCLUIR TAREFA")
-    print ("04 -> SAIR")
+    print ("03 -> ALTERAR TAREFA")
+    print ("04 -> CONCLUIR TAREFA")
+    print ("05 -> LISTAR TAREFAS CONCLUIDAS")
+    print ("06 -> EXCLUIR TAREFAS")
+    print ("07 -> SAIR")
     print (" ")
     print("QUAL OPÇÃO DESEJA?")
     menu = input(">> ")
@@ -21,6 +24,7 @@ while sair == 0:
             adicionarTarefa = ControllerAdicionarTarefa(tarefa)
             print (" ")
             os.system("pause")
+
         case "2":
             os.system("cls")
             print ("Lista de tarefas:")
@@ -28,7 +32,17 @@ while sair == 0:
             listarTarefa = ControllerListarTarefa()
             print (" ")
             os.system("pause")
+
         case "3":
+            pass
+
+        case "4":
+            pass
+
+        case "5":
+            pass
+
+        case "6":
             os.system("cls")
             print ("Lista de tarefas:")
             print(" ")
@@ -41,10 +55,12 @@ while sair == 0:
             print(" ")
             listarTarefa = ControllerListarTarefa()
             os.system("pause")
-        case "4":
+
+        case "7":
             print ("Saindo...")
             os.system("pause")
             break
+        
         case _:
             print ("Opção inválida")
             os.system("pause")

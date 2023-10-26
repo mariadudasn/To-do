@@ -12,9 +12,9 @@ class ControllerAdicionarTarefa():
                 for tarefas in TODO.ListarTarefa():
                     cont +=1
                     if cont >= 1:
-                        tarefas = tarefas [:4]
-                        tarefas = int(tarefas)
-                        if id != tarefas:
+                        tarefas = tarefas.split()
+                        tarefass = int(tarefas[1])
+                        if id != tarefass:
                             if self.tarefa == "":
                                 print ("Digite novamente, tarefa inválida")
                             else:
@@ -65,5 +65,5 @@ class ControllerListarTarefa():
         for tarefa in TODO.ListarTarefa():
             cont += 1
             if cont >= 1:
-                tarefa = tarefa[5:-1]
+                tarefa = tarefa[9:-1]
                 print(f"{cont} - {tarefa}")

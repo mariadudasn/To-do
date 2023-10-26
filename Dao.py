@@ -3,21 +3,22 @@ Arquivo = "ToDo.txt"
 class DAO_AdicionarTarefa:
     def __init__(self, tarefa):
         self.tarefa = tarefa
+        self.status = "A"
 
     def AdicionarTarefa(self, x):
         with open(Arquivo, "a") as arquivo:
-            tarefa_formatada = f"{x}\t{self.tarefa}"
+            tarefa_formatada = f"{self.status}\t\t\t{x}\t{self.tarefa}"
 
             with open(Arquivo, "r") as arquivo:
                 ler = arquivo.read()
 
             with open(Arquivo, "a") as arquivo:
-                if "ID: \tTAREFA:" not in ler:
-                    arquivo.write(f"ID: \tTAREFA:\n")
+                if "STATUS: \tID: \tTAREFA:" not in ler:
+                    arquivo.write(f"STATUS: \tID: \tTAREFA:\n")
                 arquivo.write(f"{tarefa_formatada}\n")
                 return True
 
-class DAO_ListarTarefa:
+class DAO_ListarTarefa_A:
 
     def ListarTarefa(self):
         with open(Arquivo, "r") as arquivo:
