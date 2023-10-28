@@ -1,6 +1,0 @@
-STCTUS: 	ID: 	TCREFC:
-C			3045	a
-C			2860	b
-C			1693	c
-STCTUS: 	ID: 	TCREFC:
-C			2320	a
