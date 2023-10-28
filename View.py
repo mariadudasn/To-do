@@ -52,7 +52,19 @@ while sair == 0:
             os.system("pause")
 
         case "4":
-            pass
+            os.system("cls")
+            print ("Concluir tarefas:")
+            print(" ")
+            print ("Sua lista de tarefas:")
+            print(" ")
+            listarTarefa = ControllerListarTarefaA()
+            print (" ")
+            indiceAlt = input ("Qual a tarefa que deseja concluir? Adicione o índice: ")
+            alterar = ControllerConcluirTarefa(indiceAlt)
+            print(" ")
+            listarTarefa = ControllerListarTarefaA()
+            print (" ")
+            os.system("pause")
 
         case "5":
             pass

@@ -103,3 +103,36 @@ class ControllerAlterarTarefa():
         except Exception:
             print(" ")
             print ("Falha ao alterar tarefa, tente novamente!")
+
+class ControllerConcluirTarefa():
+    def __init__(self, indiceAlt):
+        try:
+            statusN = "C"
+            indices = {}
+            indiceint = int(indiceAlt)
+
+            if indiceint == "":
+                print ("Falha ao alterar tarefa, tente novamente!")
+            
+            else:
+                cont = 0
+                if len(TODO.ListarTarefa()) > 1:
+                    for tarefas in TODO.ListarTarefa():
+                        tarefas = tarefas.split()
+                        tarefasA = tarefas[0]
+                        if "A" == tarefasA:
+                            cont +=1
+                            indices[cont] = tarefas[0]
+
+                for chave, valor in indices.items():
+                    if chave == indiceint:
+                        valor = "A"
+                        if TODO.ConcluirTarefa(valor, statusN) == True:
+                            print ("Tarefa alterada com sucesso!")
+                        else:
+                            print (" ")
+                            print ("Falha ao alterar tarefa, tente novamente!")
+
+        except Exception:
+            print(" ")
+            print ("Falha ao concluir tarefa, tente novamente!")

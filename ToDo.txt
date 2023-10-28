@@ -1,5 +1,6 @@
-STATUS: 	ID: 	TAREFA:
-A			1351	Correr
-A			1428	Comer
-A			9692	Pular
-A			7421	Andar
+STCTUS: 	ID: 	TCREFC:
+C			3045	a
+C			2860	b
+C			1693	c
+STCTUS: 	ID: 	TCREFC:
+C			2320	a

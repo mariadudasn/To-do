@@ -35,3 +35,14 @@ class DAO_AlterarTarefa:
         with open(Arquivo, "w") as arquivo:
             arquivo.write(textoNovo)
             return True
+        
+class DAO_ConcluirTarefa:
+    def ConcluirTarefa(self, statusA, statusN):
+        with open(Arquivo, "r") as arquivo:
+            status = arquivo.read()
+
+        statusNovo = status.replace(statusA, statusN)
+
+        with open(Arquivo, "w") as arquivo:
+            arquivo.write(statusNovo)
+            return True

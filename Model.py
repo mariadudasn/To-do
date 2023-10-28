@@ -18,4 +18,8 @@ class ToDo():
         daoalterar = DAO_AlterarTarefa()
         return daoalterar.AlterarTarefa(tarefa_A, novaTarefa)
     
+    def ConcluirTarefa(self, statusA, statusN):
+        daoconcluir = DAO_ConcluirTarefa()
+        return daoconcluir.ConcluirTarefa(statusA, statusN)
+    
 TODO = ToDo()
