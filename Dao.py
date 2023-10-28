@@ -34,4 +34,4 @@ class DAO_AlterarTarefa:
 
         with open(Arquivo, "w") as arquivo:
             arquivo.write(textoNovo)
-            return textoNovo
+            return True

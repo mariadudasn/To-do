@@ -2,7 +2,6 @@ from Model import *
 from Dao import *
 from random import *
 
-indices = {}
 class ControllerAdicionarTarefa():
     def __init__(self, tarefa):
         try:
@@ -62,31 +61,45 @@ class ControllerExcluirTarefa():
 
 class ControllerListarTarefaA():
     def __init__(self):
-        cont = -1
+        cont = 0
         if len(TODO.ListarTarefa()) > 1:
             for tarefas in TODO.ListarTarefa():
-                cont +=1
-                if cont >= 1:
-                    tarefas = tarefas.split()
-                    tarefasA = tarefas[0]
-                    if "A" == tarefasA:
-                        print(f"{cont} - {tarefas[2]}")
-                        indices[cont] = tarefas[1]
+                tarefas = tarefas.split()
+                tarefasA = tarefas[0]
+                if "A" == tarefasA:
+                    cont +=1
+                    print(f"{cont} - {tarefas[2]}")
 
-lista = ControllerListarTarefaA()
 
 class ControllerAlterarTarefa():
     def __init__(self, indiceAlt, novaTarefa):
         try:
             self.indiceAlt = indiceAlt
             self.novaTarefa = novaTarefa
+            indices = {}
+            indiceint = int(indiceAlt)
 
-            if self.indiceAlt in indices:
-                for tarefas in TODO.ListarTarefa():
-                    lista_L = tarefas.split()
-                    tarefasId = lista_L[1]
-                    if tarefasId == indices[self.indiceAlt]:
-                        tarefa_A = tarefas [9:-1]
-                        TODO.AlterarTarefa(tarefa_A, novaTarefa)
+            if novaTarefa == "":
+                print ("Falha ao alterar tarefa, tente novamente!")
+            
+            else:
+                cont = 0
+                if len(TODO.ListarTarefa()) > 1:
+                    for tarefas in TODO.ListarTarefa():
+                        tarefas = tarefas.split()
+                        tarefasA = tarefas[0]
+                        if "A" == tarefasA:
+                            cont +=1
+                            indices[cont] = tarefas[2]
+
+                for chave, valor in indices.items():
+                    if chave == indiceint:
+                        if TODO.AlterarTarefa(valor, novaTarefa) == True:
+                            print ("Tarefa alterada com sucesso!")
+                        else:
+                            print (" ")
+                            print ("Falha ao alterar tarefa, tente novamente!")
+                
         except Exception:
-            print("Opção inválida")
+            print(" ")
+            print ("Falha ao alterar tarefa, tente novamente!")

@@ -14,7 +14,9 @@ while sair == 0:
     print ("07 -> SAIR")
     print (" ")
     print("QUAL OPÇÃO DESEJA?")
+
     menu = input(">> ")
+
     os.system("pause")
 
     match menu:
@@ -37,7 +39,7 @@ while sair == 0:
             os.system("cls")
             print ("Alterar tarefas:")
             print(" ")
-            print ("Lista de tarefas:")
+            print ("Sua lista de tarefas:")
             print(" ")
             listarTarefa = ControllerListarTarefaA()
             print (" ")

@@ -1,6 +1,5 @@
 STATUS: 	ID: 	TAREFA:
-A			5567	a
-A			3367	b
-A			9984	c
-A			6493	a
-A			3905	b
+A			1351	Correr
+A			1428	Comer
+A			9692	Pular
+A			7421	Andar
