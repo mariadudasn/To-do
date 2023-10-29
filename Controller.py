@@ -40,25 +40,6 @@ class ControllerAdicionarTarefa():
         except Exception:
             print("Opção inválida")
 
-class ControllerExcluirTarefa():
-    def __init__(self, excluir):
-        s = 0
-        while s == 0:
-            try:
-                x = int(excluir)
-                self.excluir = x - 1
-
-                if TODO.ExcluirTarefa(self.excluir) == True:
-                        print ("Tarefa excluída")
-                        s = 1
-                else:
-                    print ("Algum problema foi encontrado ao tentar excluir tarefa")
-
-            except Exception:
-                print("Opção inválida")
-                excluir = input ("Qual o índice da tarefa que deseja excluir? ")
-
-
 class ControllerListarTarefaA():
     def __init__(self):
         cont = 0
@@ -126,7 +107,6 @@ class ControllerConcluirTarefa():
 
                 for chave, valor in indices.items():
                     if chave == indiceint:
-                        valor = "A"
                         if TODO.ConcluirTarefa(valor, statusN) == True:
                             print ("Tarefa alterada com sucesso!")
                         else:
@@ -136,3 +116,32 @@ class ControllerConcluirTarefa():
         except Exception:
             print(" ")
             print ("Falha ao concluir tarefa, tente novamente!")
+
+class ControllerListarTarefaC():
+    def __init__(self):
+        cont = 0
+        if len(TODO.ListarTarefa()) > 1:
+            for tarefas in TODO.ListarTarefa():
+                tarefas = tarefas.split()
+                tarefasC = tarefas[0]
+                if "C" == tarefasC:
+                    cont +=1
+                    print(f"{cont} - {tarefas[2]}")
+
+# class ControllerExcluirTarefa():
+#     def __init__(self, excluir):
+#         s = 0
+#         while s == 0:
+#             try:
+#                 x = int(excluir)
+#                 self.excluir = x - 1
+
+#                 if TODO.ExcluirTarefa(self.excluir) == True:
+#                         print ("Tarefa excluída")
+#                         s = 1
+#                 else:
+#                     print ("Algum problema foi encontrado ao tentar excluir tarefa")
+
+#             except Exception:
+#                 print("Opção inválida")
+#                 excluir = input ("Qual o índice da tarefa que deseja excluir? ")

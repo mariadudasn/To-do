@@ -67,21 +67,27 @@ while sair == 0:
             os.system("pause")
 
         case "5":
-            pass
-
-        case "6":
             os.system("cls")
-            print ("Lista de tarefas:")
+            print ("Lista de tarefas concluídas:")
             print(" ")
-            listarTarefa = ControllerListarTarefaA()
-            print(" ")
-            excluir = input ("Qual o índice da tarefa que deseja excluir? ")
-            excluirTarefa = ControllerExcluirTarefa(excluir)
-            print(" ")
-            print ("Lista de tarefas:")
-            print(" ")
-            listarTarefa = ControllerListarTarefaA()
+            listarTarefa = ControllerListarTarefaC()
+            print (" ")
             os.system("pause")
+
+
+        # case "6":
+        #     os.system("cls")
+        #     print ("Lista de tarefas:")
+        #     print(" ")
+        #     listarTarefa = ControllerListarTarefaA()
+        #     print(" ")
+        #     excluir = input ("Qual o índice da tarefa que deseja excluir? ")
+        #     excluirTarefa = ControllerExcluirTarefa(excluir)
+        #     print(" ")
+        #     print ("Lista de tarefas:")
+        #     print(" ")
+        #     listarTarefa = ControllerListarTarefaA()
+        #     os.system("pause")
 
         case "7":
             print ("Saindo...")
