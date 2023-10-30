@@ -35,21 +35,28 @@ class ControllerAdicionarTarefa():
                         print ("Tarefa adicionada")
                     else:
                         print ("Tarefa não foi adicionada")
-                            
-                            
+                                            
         except Exception:
             print("Opção inválida")
 
 class ControllerListarTarefaA():
     def __init__(self):
-        cont = 0
-        if len(TODO.ListarTarefa()) > 1:
-            for tarefas in TODO.ListarTarefa():
-                tarefas = tarefas.split()
-                tarefasA = tarefas[0]
-                if "A" == tarefasA:
-                    cont +=1
-                    print(f"{cont} - {tarefas[2]}")
+        try:
+            cont = 0
+            if len(TODO.ListarTarefa()) > 1:
+                for tarefas in TODO.ListarTarefa():
+                    tarefas = tarefas.split()
+                    tarefasA = tarefas[0]
+                    if "A" == tarefasA:
+                        cont +=1
+                        print(f"{cont} - {tarefas[2]}")
+            
+            else:
+                if TODO.ListarTarefa() == "":
+                    print("A lista de tarefas está vazia")
+                    
+        except Exception:
+            print("Algum erro foi encontrado")
 
 
 class ControllerAlterarTarefa():
@@ -119,14 +126,17 @@ class ControllerConcluirTarefa():
 
 class ControllerListarTarefaC():
     def __init__(self):
-        cont = 0
-        if len(TODO.ListarTarefa()) > 1:
-            for tarefas in TODO.ListarTarefa():
-                tarefas = tarefas.split()
-                tarefasC = tarefas[0]
-                if "C" == tarefasC:
-                    cont +=1
-                    print(f"{cont} - {tarefas[2]}")
+        try:
+            cont = 0
+            if len(TODO.ListarTarefa()) > 1:
+                for tarefas in TODO.ListarTarefa():
+                    tarefas = tarefas.split()
+                    tarefasC = tarefas[0]
+                    if "C" == tarefasC:
+                        cont +=1
+                        print(f"{cont} - {tarefas[2]}")
+        except Exception:
+            print ("Nenhuma tarefa foi concluída")
 
 # class ControllerExcluirTarefa():
 #     def __init__(self, excluir):

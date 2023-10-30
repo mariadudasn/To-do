@@ -4,14 +4,8 @@ import os
 sair = 0
 while sair == 0:
     os.system("cls")
-    print ("SOFTWARE DE TO-DO")
-    print ("01 -> ADICIONAR TAREFA")
-    print ("02 -> LISTAR TAREFAS")
-    print ("03 -> ALTERAR TAREFA")
-    print ("04 -> CONCLUIR TAREFA")
-    print ("05 -> LISTAR TAREFAS CONCLUIDAS")
-    print ("06 -> EXCLUIR TAREFAS")
-    print ("07 -> SAIR")
+    print ("SOFTWARE DE TO-DO LIST")
+    print (" 01 -> ADICIONAR TAREFA \n 02 -> LISTAR TAREFAS \n 03 -> ALTERAR TAREFA \n 04 -> CONCLUIR TAREFA \n 05 -> LISTAR TAREFAS CONCLUIDAS \n 06 -> EXCLUIR TAREFAS \n 07 -> SAIR")
     print (" ")
     print("QUAL OPÇÃO DESEJA?")
 
@@ -74,7 +68,6 @@ while sair == 0:
             print (" ")
             os.system("pause")
 
-
         # case "6":
         #     os.system("cls")
         #     print ("Lista de tarefas:")
@@ -92,7 +85,7 @@ while sair == 0:
         case "7":
             print ("Saindo...")
             os.system("pause")
-            break
+            sair = 1
 
         case _:
             print ("Opção inválida")

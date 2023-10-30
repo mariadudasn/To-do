@@ -3,8 +3,8 @@ from Dao import *
 class ToDo():
 
     def AdicionarTarefa(self, tarefa, x):
-        dao = DAO_AdicionarTarefa(tarefa)
-        return dao.AdicionarTarefa(x)
+        daoadd = DAO_AdicionarTarefa(tarefa)
+        return daoadd.AdicionarTarefa(x)
 
     # def ExcluirTarefa(self, excluir):
     #     self.lista.pop(excluir)
