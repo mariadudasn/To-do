@@ -114,11 +114,11 @@ class ControllerConcluirTarefa():
 
                 for chave, valor in indices.items():
                     if chave == indiceint:
-                        if TODO.ConcluirTarefa(valor, statusN) == True:
-                            print ("Tarefa alterada com sucesso!")
+                        if TODO.ConcluirExcluirTarefa(valor, statusN) == True:
+                            print ("Tarefa concluída com sucesso!")
                         else:
                             print (" ")
-                            print ("Falha ao alterar tarefa, tente novamente!")
+                            print ("Falha ao concluir tarefa, tente novamente!")
 
         except Exception:
             print(" ")
@@ -138,20 +138,34 @@ class ControllerListarTarefaC():
         except Exception:
             print ("Nenhuma tarefa foi concluída")
 
-# class ControllerExcluirTarefa():
-#     def __init__(self, excluir):
-#         s = 0
-#         while s == 0:
-#             try:
-#                 x = int(excluir)
-#                 self.excluir = x - 1
+class ControllerExcluirTarefa():
+    def __init__(self, indiceAlt):
+        try:
+            statusN = "E"
+            indices = {}
+            indiceint = int(indiceAlt)
 
-#                 if TODO.ExcluirTarefa(self.excluir) == True:
-#                         print ("Tarefa excluída")
-#                         s = 1
-#                 else:
-#                     print ("Algum problema foi encontrado ao tentar excluir tarefa")
+            if indiceint == "":
+                print ("Falha ao alterar tarefa, tente novamente!")
+            
+            else:
+                cont = 0
+                if len(TODO.ListarTarefa()) > 1:
+                    for tarefas in TODO.ListarTarefa():
+                        tarefas = tarefas.split()
+                        tarefasA = tarefas[0]
+                        if "A" == tarefasA:
+                            cont +=1
+                            indices[cont] = tarefas[0]
 
-#             except Exception:
-#                 print("Opção inválida")
-#                 excluir = input ("Qual o índice da tarefa que deseja excluir? ")
+                for chave, valor in indices.items():
+                    if chave == indiceint:
+                        if TODO.ConcluirExcluirTarefa(valor, statusN) == True:
+                            print ("Tarefa excluída com sucesso!")
+                        else:
+                            print (" ")
+                            print ("Falha ao excluir tarefa, tente novamente!")
+
+        except Exception:
+            print(" ")
+            print ("Falha ao concluir tarefa, tente novamente!")
