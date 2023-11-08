@@ -8,7 +8,7 @@ class ControllerAdicionarTarefa():
             self.tarefa = tarefa
             id = randint(1000,9999)
             cont = -1
-            if len(TODO.ListarTarefa()) > 0:
+            if len(TODO.ListarTarefa()) > 1:
                 for tarefas in TODO.ListarTarefa():
                     cont +=1
                     if cont >= 1:
@@ -45,61 +45,49 @@ class ControllerListarTarefaA():
             cont = 0
             if len(TODO.ListarTarefa()) > 1:
                 for tarefas in TODO.ListarTarefa():
-                    tarefas = tarefas.split()
+                    tarefas = tarefas.split("\t",5)
                     tarefasA = tarefas[0]
                     if "A" == tarefasA:
                         cont +=1
-                        print(f"{cont} - {tarefas[2]}")
-            
-            else:
-                if TODO.ListarTarefa() == "":
-                    print("A lista de tarefas está vazia")
+                        print(f"{cont} - {tarefas[4]}")
                     
         except Exception:
-            print("Algum erro foi encontrado")
+            print("Algum erro foi encontrado ou a lista de tarefas está vazia")
 
 class ControllerAlterarTarefa():
-    def __init__(self, indiceAlt, novaTarefa):
+    def __init__(self, indice, nova_tarefa):
         try:
-            self.indiceAlt = indiceAlt
-            self.novaTarefa = novaTarefa
+            self.indice = indice
+            self.nova_tarefa = nova_tarefa
             indices = {}
-            tarefasidic = {}
-            indiceint = int(indiceAlt)
+            indiceInt = int(indice)
 
-            if novaTarefa == "":
-                print ("Falha ao alterar tarefa, tente novamente!")
-            
+            if indiceInt <= 0:
+                print("Tarefa invalida. Tente novamente")
+
+            if nova_tarefa == "":
+                print("Algo deu errado ao alterar a a trefa. Tente novamente.")
+
             else:
                 cont = 0
                 if len(TODO.ListarTarefa()) > 1:
                     for tarefas in TODO.ListarTarefa():
                         tarefas = tarefas.split()
-
                         tarefasA = tarefas[0]
-                        
-                        if "A" == tarefasA:
-                            cont +=1
-                            tarefasid = tarefas[1]
-                            tarefasid = int(tarefasid)
-                            tarefasidic[tarefasid] = tarefasid
+                        if tarefasA == "A":
+                            cont += 1
+                            indices[cont] = tarefas[2]
 
-                            tarefaAntiga = tarefas[2]
-                            indices[cont] = tarefaAntiga
+                for chave, valor in indices.items():
+                    if chave == indiceInt:
+                        if TODO.AlterarTarefa(valor, nova_tarefa) == True:
+                            print("Tarefa alterada com sucesso!")
+                        else:
+                            print("Algum problema foi encontrado. Tente novamente!")
 
-                    for chave, valor in indices.items():
-                        if chave == indiceint:
-                            for chave, valor in tarefasidic.items():
-                                if valor == indiceint:
-                                    if TODO.AlterarTarefa(tarefaAntiga, novaTarefa) == True:
-                                        print ("Tarefa alterada com sucesso!")
-                                    else:
-                                        print (" ")
-                                        print ("Falha ao alterar tarefa, tente novamente!")
-                
         except Exception:
-            print(" ")
-            print ("Falha ao alterar tarefa, tente novamente!") 
+                print("Valor invalido")
+
 
 
 class ControllerConcluirTarefa():
