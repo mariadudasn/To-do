@@ -36,13 +36,3 @@ class DAO_AlterarTarefa:
             arquivo.write(textoNovo)
             return True
         
-class DAO_ConcluirExcluirTarefa:
-    def ConcluirExcluirTarefa(self, statusA, statusN):
-        with open(Arquivo, "r") as arquivo:
-            status = arquivo.read()
-
-        statusNovo = status.replace(statusA, statusN)
-
-        with open(Arquivo, "w") as arquivo:
-            arquivo.write(statusNovo)
-            return True
