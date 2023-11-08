@@ -89,13 +89,13 @@ class ControllerAlterarTarefa():
                 print("Valor invalido")
 
 
-
 class ControllerConcluirTarefa():
     def __init__(self, indiceAlt):
         try:
-            statusN = "C"
-            indices = {}
             indiceint = int(indiceAlt)
+
+            if indiceint <= 0:
+                print("Tarefa invalida. Tente novamente")
 
             if indiceint == "":
                 print ("Falha ao alterar tarefa, tente novamente!")
@@ -104,19 +104,19 @@ class ControllerConcluirTarefa():
                 cont = 0
                 if len(TODO.ListarTarefa()) > 1:
                     for tarefas in TODO.ListarTarefa():
-                        tarefas = tarefas.split()
+                        tarefasFinal = tarefas.split("\n")
+                        tarefas = tarefas.split("\t",6)
                         tarefasA = tarefas[0]
                         if "A" == tarefasA:
                             cont +=1
-                            indices[cont] = tarefas[0]
-
-                for chave, valor in indices.items():
-                    if chave == indiceint:
-                        if TODO.AlterarTarefa(valor, statusAt) == True:
-                            print ("Tarefa concluída com sucesso!")
-                        else:
-                            print (" ")
-                            print ("Falha ao concluir tarefa, tente novamente!")
+                        if cont == indiceint:                            
+                            tarefasFinal = str(tarefasFinal[0])
+                            tarefasAlter = "C" + tarefasFinal[1:]
+                            if TODO.AlterarTarefa(tarefasFinal, tarefasAlter) == True:
+                                print ("Tarefa concluída com sucesso!")
+                            else:
+                                print (" ")
+                                print ("Falha ao concluir tarefa, tente novamente!")
 
         except Exception:
             print(" ")
@@ -128,20 +128,22 @@ class ControllerListarTarefaC():
             cont = 0
             if len(TODO.ListarTarefa()) > 1:
                 for tarefas in TODO.ListarTarefa():
-                    tarefas = tarefas.split()
-                    tarefasC = tarefas[0]
-                    if "C" == tarefasC:
-                        cont +=1
-                        print(f"{cont} - {tarefas[2]}")
+                    tarefas = tarefas.split("\t",5)
+                    tarefasA = tarefas[0]
+                    if tarefasA == "C":
+                        cont += 1
+                        print(f"{cont} - {tarefas[4]}")
+
         except Exception:
             print ("Nenhuma tarefa foi concluída")
 
 class ControllerExcluirTarefa():
     def __init__(self, indiceAlt):
         try:
-            statusN = "E"
-            indices = {}
             indiceint = int(indiceAlt)
+
+            if indiceint <= 0:
+                print("Tarefa invalida. Tente novamente")
 
             if indiceint == "":
                 print ("Falha ao alterar tarefa, tente novamente!")
@@ -150,19 +152,19 @@ class ControllerExcluirTarefa():
                 cont = 0
                 if len(TODO.ListarTarefa()) > 1:
                     for tarefas in TODO.ListarTarefa():
-                        tarefas = tarefas.split()
+                        tarefasFinal = tarefas.split("\n")
+                        tarefas = tarefas.split("\t",6)
                         tarefasA = tarefas[0]
                         if "A" == tarefasA:
                             cont +=1
-                            indices[cont] = tarefas[0]
-
-                for chave, valor in indices.items():
-                    if chave == indiceint:
-                        if TODO.ConcluirExcluirTarefa(valor, statusN) == True:
-                            print ("Tarefa excluída com sucesso!")
-                        else:
-                            print (" ")
-                            print ("Falha ao excluir tarefa, tente novamente!")
+                        if cont == indiceint:                            
+                            tarefasFinal = str(tarefasFinal[0])
+                            tarefasAlter = "E" + tarefasFinal[1:]
+                            if TODO.AlterarTarefa(tarefasFinal, tarefasAlter) == True:
+                                print ("Tarefa excluida com sucesso!")
+                            else:
+                                print (" ")
+                                print ("Falha ao concluir tarefa, tente novamente!")
 
         except Exception:
             print(" ")
