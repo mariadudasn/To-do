@@ -14,8 +14,4 @@ class ToDo():
         daoalterar = DAO_AlterarTarefa()
         return daoalterar.AlterarTarefa(tarefa_A, novaTarefa)
     
-    def ConcluirExcluirTarefa(self, statusA, statusN):
-        daoconcluirexcluir = DAO_ConcluirExcluirTarefa()
-        return daoconcluirexcluir.ConcluirExcluirTarefa(statusA, statusN)
-    
 TODO = ToDo()
